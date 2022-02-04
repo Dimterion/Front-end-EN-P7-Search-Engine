@@ -1,0 +1,26 @@
+{
+  "name": "front-end-en-p7-search-engine",
+  "version": "1.0.0",
+  "description": "Les petits plats website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimterion/Front-end-EN-P7-Search-Engine.git"
+  },
+  "keywords": [
+    "OpenClassrooms",
+    "Front-End"
+  ],
+  "author": "Dmitrii",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimterion/Front-end-EN-P7-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/Dimterion/Front-end-EN-P7-Search-Engine#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
