@@ -20,11 +20,12 @@ export const recipes = [
             },
             {
                 "ingredient" : "Sugar",
-                "quantite" : 30,
+                "quantity" : 30,
                 "unit" : "grams"
             },
             {
-                "ingredient": "Ice cubes"
+                "ingredient": "Ice cubes",
+                "quantity" : 2
             }
         ],
         "time": 10,
@@ -52,7 +53,7 @@ export const recipes = [
             },
             {
                 "ingredient" : "Carrot",
-                "quantite" : 1
+                "quantity" : 1
             },
             {
                 "ingredient" : "Lime",
