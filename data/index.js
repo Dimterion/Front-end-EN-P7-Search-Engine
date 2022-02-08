@@ -4,8 +4,6 @@ import { recipes } from "./recipes.js";
 function postRecipes() {
   recipes.forEach((recipe) => {
 
-    // Checking recipes array inside the function postRecipes()
-    // console.log(recipe.name);
     const cardsSection = document.querySelector(".row.row-cols-1.row-cols-md-3.g-4.mt-1.mb-3.mx-5");
 
     const recipeBlock = document.createElement("div");
@@ -18,6 +16,7 @@ function postRecipes() {
     const ingredientsSection = document.createElement("div");
     const recipeTextSection = document.createElement("div");
 
+    recipeBlock.setAttribute("id", `card-${recipe.id}`);
     recipeBlock.setAttribute("class", "col");
     innerCardBlock.setAttribute("class", "card h-100 bg-secondary");
 
@@ -26,7 +25,7 @@ function postRecipes() {
     recipeName.setAttribute("class", "col-8 card-title text-reset ps-4 pe-0");
     cookTime.setAttribute("class", "col-4 text-reset fw-bold ps-4 pe-0");
     textBlockBody.setAttribute("class", "row mx-1 mt-2");
-    ingredientsSection.setAttribute("class", "col fw-lighter");
+    ingredientsSection.setAttribute("class", "ingredientsBlock col fw-lighter");
     recipeTextSection.setAttribute("class", "col fw-lighter");
 
     innerCardBlock.appendChild(cardImg);
@@ -73,3 +72,23 @@ function postRecipes() {
 }
 
 postRecipes();
+
+// Search ingredients functionality
+function searchIngredients() {
+  let ingredientsInput = document.getElementById("ingredients-input");
+  let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
+
+  ingredientsInput.addEventListener("keyup", () => {
+    for (let j = 0; j < ingredientsBlock.length; j++) {
+      let recipeCard = document.getElementById(`card-${j + 1}`);
+      let txtValue = ingredientsBlock[j].textContent || ingredientsBlock[j].innerText;
+      if (txtValue.toUpperCase().indexOf(ingredientsInput.value.toUpperCase()) > -1) {
+        recipeCard.style.display = "";
+      } else {
+        recipeCard.style.display = "none";
+      }
+    }
+  });
+}
+
+searchIngredients();

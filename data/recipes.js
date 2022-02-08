@@ -1,4 +1,4 @@
-export const recipes = [
+const recipes = [
     {
         "id": 1,
         "name" : "Coconut Lemonade",
@@ -69,7 +69,8 @@ export const recipes = [
         "description": "Cut the tuna into cubes, place in a dish and cover with lime juice (better to use a wide, shallow dish). Place in the refrigerator for at least 2 hours. (If possible, prepare it the evening before. After leaving the fish to marinate, cut the cucumber, without the skin, into thin slices and the tomatoes, taking care to remove the seeds. Grate the carrot. Add the vegetables to the fish with the lemon in a salad bowl. Add the coconut milk. To add more flavor, you can add 1 to 2 tablespoons of coconut cream",
         "appliance": "Salad bowl",
         "ustensils": ["lemon squeezer"]
-    },{
+    },
+    {
         "id": 3,
         "name": "Réunion Coconut Chicken",
         "servings": 4,
@@ -104,7 +105,8 @@ export const recipes = [
         "description": "Cut the chicken into pieces and brown them in a pan with olive oil. Season. When browned, let cook, adding water. After 30 minutes, add the tomato coulis, the coconut milk as well as the pepper and onion chopped into pieces. Let cook for an additional 30 minutes. Serve with rice",
         "appliance": "Casserole dish",
         "ustensils": ["knife"]
-    },{
+    },
+    {
         "id": 4,
         "name": "Rice salad",
         "servings": 4,
@@ -219,7 +221,8 @@ export const recipes = [
         "description": "Start by mixing the eggs, sugar and vanilla sugar in a salad bowl, cut the apples into slices, add the crème fraîche to the eggs. Once everything is ready, spread the pie across the pan. Don't forget to prick the base with a fork before placing the apples on the pie. Finally, pour the egg and crême fraîche-based mixture over the top. Bake for 30 minutes",
         "appliance": "Oven",
         "ustensils": ["pie dish", "salad bowl", "fork"]
-    },{
+    },
+    {
         "id": 7,
         "name": "Chocolate and strawberry tartlets",
         "servings": 6,
@@ -252,7 +255,8 @@ export const recipes = [
         "description": "Spread the dough into the tartlet pans. Cook the dough for 30 minutes. Cut the chocolate into pieces and heat it up, add the liquid cream to it, add the butter and stir until you have a smooth paste. Pour the paste onto the tartlets. Cut the strawberries in half and place them on top ",
         "appliance":"Oven",
         "ustensils":["moule à tartelettes (6)", "casserolle"]
-    }, {
+    },
+    {
         "id": 8,
         "name": "Brownie",
         "servings": 10,
@@ -359,7 +363,8 @@ export const recipes = [
         "description": "Begin by cooking the potatoes in boiling water. Then peel them and cut them into slices. Slice the onions and brown them in butter. Add the smoked ham cut and potatoes, both into pieces. Season to your taste (and that of your guests). Cook for around 10 minutes then add the white wine. After 5 minutes, place it all into a baking dish. Cut up the reblochon, either in slices, or cut into halves from the side and cover the potatoes. Bake (approximately 220°) for 25 minutes. It's ready!",
         "appliance":"Oven",
         "ustensils": ["baking dish", "knife", "Peeling"]
-    },{
+    },
+    {
         "id": 11,
         "name": "Tomato, mozzarella and apple salad",
         "servings": 4,
@@ -397,7 +402,8 @@ export const recipes = [
         "description": "Begin by cutting the salad leaves, add the cherry tomatoes and the cheese, cut into cubes or balls with a melon spoon. Cut the Parma ham into thin strips. Add the apple, also cut into small pieces. Season to your taste. ",
         "appliance": "Salad bowl",
         "ustensils": ["knife", "melon spoon" ]
-    },{
+    },
+    {
         "id": 12,
         "name": "Rhubarb and apple compote",
         "servings": 4,
@@ -1723,3 +1729,5 @@ export const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ];
+
+export {recipes};
