@@ -1,5 +1,40 @@
 import { recipes } from "./recipes.js";
 
+// Pushing all ingredients into the Ingredients dropdown menu
+function addIngredientTags() {
+  const ingredientsDropdown = document.querySelector(".ingredients-dropdown");
+
+  let uniqueIngredientsArray = [];
+  // Getting all ingredients from the recipes array and pushing only unique ones into the uniqueIngredientsArray
+  function getAllIngredients() {
+    let getAllIngredientsArray = [];
+    recipes.forEach((recipe) => {
+      for (let i = 0; i < recipe.ingredients.length; i++) {
+        getAllIngredientsArray.push(recipe.ingredients[i].ingredient);
+      }
+    });
+    uniqueIngredientsArray = [...new Set(getAllIngredientsArray)];
+  }
+
+  getAllIngredients();
+
+  // Creating HTML elements for each ingredient and adding them to the dropdown menu
+  uniqueIngredientsArray.forEach((ingredient) => {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+
+  a.setAttribute("href", "#");
+
+  li.appendChild(a);
+  ingredientsDropdown.appendChild(li);
+
+  a.innerHTML = ingredient;
+  });
+
+}
+
+addIngredientTags();
+
 // Creating a container for each recipe
 function postRecipes() {
   recipes.forEach((recipe) => {
