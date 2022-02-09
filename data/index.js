@@ -3,7 +3,6 @@ import { recipes } from "./recipes.js";
 // Creating a container for each recipe
 function postRecipes() {
   recipes.forEach((recipe) => {
-
     const cardsSection = document.querySelector(".row.row-cols-1.row-cols-md-3.g-4.mt-1.mb-3.mx-5");
 
     const recipeBlock = document.createElement("div");
@@ -22,7 +21,7 @@ function postRecipes() {
 
     cardImg.setAttribute("src", "assets/img-placeholder.jpg");
     textBlockHead.setAttribute("class", "row mt-2");
-    recipeName.setAttribute("class", "col-8 card-title text-reset ps-4 pe-0");
+    recipeName.setAttribute("class", "recipe-name col-8 card-title text-reset ps-4 pe-0");
     cookTime.setAttribute("class", "col-4 text-reset fw-bold ps-4 pe-0");
     textBlockBody.setAttribute("class", "row mx-1 mt-2");
     ingredientsSection.setAttribute("class", "ingredientsBlock col fw-lighter");
@@ -68,12 +67,38 @@ function postRecipes() {
       
       ingredientsSection.appendChild(ingredient);
     }
+
   });
 }
 
 postRecipes();
 
-// Search ingredients functionality
+// Main search functionality
+function searchAll() {
+  let mainSearchInput = document.getElementById("main-search");
+  let recipeName = document.querySelectorAll(".recipe-name");
+
+  mainSearchInput.addEventListener("keyup", () => {
+    for (let k = 0; k < recipeName.length; k++) {
+      let recipeCard = document.getElementById(`card-${k + 1}`);
+      let txtValue = recipeName[k].textContent || recipeName[k].innerText;
+      if(mainSearchInput.value.length > 2) {
+        if (txtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
+          recipeCard.style.display = "";
+        } else {
+          recipeCard.style.display = "none";
+        }
+      } else {
+      recipeCard.style.display = "";
+      }
+    }
+  });
+
+}
+
+searchAll();
+
+// Ingredients search functionality
 function searchIngredients() {
   let ingredientsInput = document.getElementById("ingredients-input");
   let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
@@ -82,13 +107,18 @@ function searchIngredients() {
     for (let j = 0; j < ingredientsBlock.length; j++) {
       let recipeCard = document.getElementById(`card-${j + 1}`);
       let txtValue = ingredientsBlock[j].textContent || ingredientsBlock[j].innerText;
-      if (txtValue.toUpperCase().indexOf(ingredientsInput.value.toUpperCase()) > -1) {
-        recipeCard.style.display = "";
+      if(ingredientsInput.value.length > 2) {
+        if (txtValue.toUpperCase().indexOf(ingredientsInput.value.toUpperCase()) > -1) {
+          recipeCard.style.display = "";
+        } else {
+          recipeCard.style.display = "none";
+        }
       } else {
-        recipeCard.style.display = "none";
+      recipeCard.style.display = "";
       }
     }
   });
+
 }
 
 searchIngredients();
