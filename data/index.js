@@ -18,14 +18,13 @@ function postRecipes() {
     recipeBlock.setAttribute("id", `card-${recipe.id}`);
     recipeBlock.setAttribute("class", "col");
     innerCardBlock.setAttribute("class", "card h-100 bg-secondary");
-
     cardImg.setAttribute("src", "assets/img-placeholder.jpg");
     textBlockHead.setAttribute("class", "row mt-2");
     recipeName.setAttribute("class", "recipe-name col-8 card-title text-reset ps-4 pe-0");
     cookTime.setAttribute("class", "col-4 text-reset fw-bold ps-4 pe-0");
     textBlockBody.setAttribute("class", "row mx-1 mt-2");
     ingredientsSection.setAttribute("class", "ingredientsBlock col fw-lighter");
-    recipeTextSection.setAttribute("class", "col fw-lighter");
+    recipeTextSection.setAttribute("class", "recipe-description col fw-lighter");
 
     innerCardBlock.appendChild(cardImg);
     innerCardBlock.appendChild(textBlockHead);
@@ -77,13 +76,17 @@ postRecipes();
 function searchAll() {
   let mainSearchInput = document.getElementById("main-search");
   let recipeName = document.querySelectorAll(".recipe-name");
+  let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
+  let recipeDescription = document.querySelectorAll(".recipe-description");
 
   mainSearchInput.addEventListener("keyup", () => {
     for (let k = 0; k < recipeName.length; k++) {
       let recipeCard = document.getElementById(`card-${k + 1}`);
-      let txtValue = recipeName[k].textContent || recipeName[k].innerText;
+      let recipeNameTxtValue = recipeName[k].textContent || recipeName[k].innerText;
+      let ingredientsTxtValue = ingredientsBlock[k].textContent || ingredientsBlock[k].innerText;
+      let descriptionTxtValue = recipeDescription[k].textContent || recipeDescription[k].innerText;
       if(mainSearchInput.value.length > 2) {
-        if (txtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
+        if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
           recipeCard.style.display = "";
         } else {
           recipeCard.style.display = "none";
@@ -99,7 +102,7 @@ function searchAll() {
 searchAll();
 
 // Ingredients search functionality
-function searchIngredients() {
+/*function searchIngredients() {
   let ingredientsInput = document.getElementById("ingredients-input");
   let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
 
@@ -121,4 +124,4 @@ function searchIngredients() {
 
 }
 
-searchIngredients();
+searchIngredients();*/

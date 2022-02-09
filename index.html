@@ -29,23 +29,30 @@
         </div>
       </div>
       <!-- Search buttons -->
-        <div class="container mx-5">
-          <div class="row">
-            <div class="col-7 col-md-2 ps-0">
-              <form class="mb-2">      
-                <input type="search" id="ingredients-input" class="form-control bg-primary" autocomplete="false" placeholder="Ingredients" title="Type in an ingredient">
-              </form>
-            </div>     
-            <div class="col-7 col-md-2 ps-0">
-              <form class="mb-2">            
-                <input type="search" class="form-control bg-primary" autocomplete="false" placeholder="Device">         
-              </form>
-            </div>      
-            <div class="col-7 col-md-2 ps-0">
-              <form class="mb-2">           
-                <input type="search" class="form-control bg-primary" autocomplete="false" placeholder="Utensils">         
-              </form>
-            </div>
+        <div class="container ms-md-5 mt-3 row-cols-2 row-cols-md-6">
+          <div class="btn-group mb-2">
+            <button class="btn btn-primary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ingredients
+            </button>
+            <ul class="ingredients-dropdown dropdown-menu">
+              
+            </ul>
+          </div>
+          <div class="btn-group mb-2">
+            <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Device
+            </button>
+            <ul class="dropdown-menu">
+              ...
+            </ul>
+          </div>
+          <div class="btn-group mb-2">
+            <button class="btn btn-danger btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Utensils
+            </button>
+            <ul class="dropdown-menu">
+              ...
+            </ul>
           </div>
         </div>
         <!-- Recipes cards -->
