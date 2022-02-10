@@ -8,18 +8,18 @@ function addIngredientTags() {
   // Getting all ingredients from the recipes array and pushing only unique ones into the uniqueIngredientsArray
   function getAllIngredients() {
     let getAllIngredientsArray = [];
-    recipes.forEach((recipe) => {
-      for (let i = 0; i < recipe.ingredients.length; i++) {
-        getAllIngredientsArray.push(recipe.ingredients[i].ingredient);
+    for (let i = 0; i < recipes.length; i++) {
+      for (let j = 0; j < recipes[i].ingredients.length; j++) {
+        getAllIngredientsArray.push(recipes[i].ingredients[j].ingredient);
       }
-    });
+    }
     uniqueIngredientsArray = [...new Set(getAllIngredientsArray)];
   }
 
   getAllIngredients();
 
   // Creating HTML elements for each ingredient and adding them to the dropdown menu
-  uniqueIngredientsArray.forEach((ingredient) => {
+  for (let i = 0; i < uniqueIngredientsArray.length; i++) {
   const li = document.createElement("li");
   const a = document.createElement("a");
 
@@ -28,8 +28,8 @@ function addIngredientTags() {
   li.appendChild(a);
   ingredientsDropdown.appendChild(li);
 
-  a.innerHTML = ingredient;
-  });
+  a.innerHTML = uniqueIngredientsArray[i];
+  }
 
 }
 
@@ -37,7 +37,7 @@ addIngredientTags();
 
 // Creating a container for each recipe
 function postRecipes() {
-  recipes.forEach((recipe) => {
+  for (let i = 0; i < recipes.length; i++) {
     const cardsSection = document.querySelector(".row.row-cols-1.row-cols-md-3.g-4.mt-1.mb-3.mx-5");
 
     const recipeBlock = document.createElement("div");
@@ -50,7 +50,7 @@ function postRecipes() {
     const ingredientsSection = document.createElement("div");
     const recipeTextSection = document.createElement("div");
 
-    recipeBlock.setAttribute("id", `card-${recipe.id}`);
+    recipeBlock.setAttribute("id", `card-${recipes[i].id}`);
     recipeBlock.setAttribute("class", "col");
     innerCardBlock.setAttribute("class", "card h-100 bg-secondary");
     cardImg.setAttribute("src", "assets/img-placeholder.jpg");
@@ -71,12 +71,12 @@ function postRecipes() {
     textBlockBody.appendChild(ingredientsSection);
     textBlockBody.appendChild(recipeTextSection);
 
-    recipeName.innerHTML = recipe.name;
-    cookTime.innerHTML = `<i class="far fa-clock"></i> ` + recipe.time + " min";
-    recipeTextSection.innerHTML = recipe.description;
+    recipeName.innerHTML = recipes[i].name;
+    cookTime.innerHTML = `<i class="far fa-clock"></i> ` + recipes[i].time + " min";
+    recipeTextSection.innerHTML = recipes[i].description;
 
     // Looping through ingredients arrays to post ingredients for each recipe
-    for (let i = 0; i < recipe.ingredients.length; i++) {
+    for (let j = 0; j < recipes[i].ingredients.length; j++) {
       const ingredient = document.createElement("div");
 
       ingredient.setAttribute("class", "row");
@@ -85,24 +85,25 @@ function postRecipes() {
       let ingredientsQuantity;
       let ingredientsUnit;
 
-      if (recipe.ingredients[i].unit == undefined) {
+      if (recipes[i].ingredients[j].unit == undefined) {
         ingredientsUnit = "";
       } else {
-        ingredientsUnit = recipe.ingredients[i].unit;
+        ingredientsUnit = recipes[i].ingredients[j].unit;
       }
 
-      if (recipe.ingredients[i].quantity == undefined) {
+      if (recipes[i].ingredients[j].quantity == undefined) {
         ingredientsQuantity = "";
-        ingredient.innerHTML = `<h6 class="text-reset">` + recipe.ingredients[i].ingredient + `</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
+        ingredient.innerHTML = `<h6 class="text-reset">` + recipes[i].ingredients[j].ingredient + `</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
       } else {
-        ingredientsQuantity = recipe.ingredients[i].quantity;
-        ingredient.innerHTML = `<h6 class="text-reset">` + recipe.ingredients[i].ingredient + `:</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
+        ingredientsQuantity = recipes[i].ingredients[j].quantity;
+        ingredient.innerHTML = `<h6 class="text-reset">` + recipes[i].ingredients[j].ingredient + `:</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
       }
       
       ingredientsSection.appendChild(ingredient);
     }
 
-  });
+  }
+
 }
 
 postRecipes();
@@ -115,11 +116,11 @@ function searchAll() {
   let recipeDescription = document.querySelectorAll(".recipe-description");
 
   mainSearchInput.addEventListener("keyup", () => {
-    for (let k = 0; k < recipeName.length; k++) {
-      let recipeCard = document.getElementById(`card-${k + 1}`);
-      let recipeNameTxtValue = recipeName[k].textContent || recipeName[k].innerText;
-      let ingredientsTxtValue = ingredientsBlock[k].textContent || ingredientsBlock[k].innerText;
-      let descriptionTxtValue = recipeDescription[k].textContent || recipeDescription[k].innerText;
+    for (let i = 0; i < recipeName.length; i++) {
+      let recipeCard = document.getElementById(`card-${i + 1}`);
+      let recipeNameTxtValue = recipeName[i].textContent || recipeName[i].innerText;
+      let ingredientsTxtValue = ingredientsBlock[i].textContent || ingredientsBlock[i].innerText;
+      let descriptionTxtValue = recipeDescription[i].textContent || recipeDescription[i].innerText;
       if(mainSearchInput.value.length > 2) {
         if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
           recipeCard.style.display = "";
