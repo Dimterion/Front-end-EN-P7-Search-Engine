@@ -60,7 +60,7 @@ const recipes = [
                 "quantity" : 5
             },
             {
-                "ingredient" : "Coconut Milk",
+                "ingredient" : "Coconut milk",
                 "quantity" : 100,
                 "unit" : "ml"
             }
@@ -927,7 +927,7 @@ const recipes = [
         ],
         "time": 25,
         "description":"Pour the oil into a pressure cooker, cut the vegetables and pour them into the hot oil. Leave to cook and stir for 10 minutes. Mix in a blender. Serve.",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["cocotte minute", "couteau"]
     },
     {
@@ -996,7 +996,7 @@ const recipes = [
         ],
         "time": 80,
         "description":"Chop the whites of the leeks into slices and heat them up in 25 grams of butter. Add the potatoes, cut into pieces. Add the water and leave to simmer for 45 minutes. Heat the sorrel with the remaining butter then add it all together. Blend. Add the cream. Enjoy.",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["casserolle","couteau"]
     },
     {
@@ -1027,7 +1027,7 @@ const recipes = [
         ],
         "time": 30,
         "description":"Take the chickpeas, place them in the blender with the olive oil, add the juice from 2 lemons and some paprika, according to taste.",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["cuillère en bois", "presse citron"]
     },
     {
@@ -1052,7 +1052,7 @@ const recipes = [
         ],
         "time": 60,
         "description":"Place all of the ingredients into a casserole dish. Add water to cover everything and simmer for 1 hour. Mix in a blender. Season. It's ready",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["casserolle", "cuillère en bois"]
     },
     {
@@ -1190,7 +1190,7 @@ const recipes = [
         ],
         "time": 25,
         "description":"Peel the sweet potatoes and cut them into pieces. Cook them for 20 minutes in a pan of boiling water. Place them in the blender adding the cream and olive oil to your taste. Season. Squeeze the orange and add the juice to the mixture. Serve.",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["couteau", "économe", "cuillère en bois"]
     },
     {
@@ -1229,7 +1229,7 @@ const recipes = [
         ],
         "time": 25,
         "description":"Peel the vegetables, cut them into pieces and cook them in a pressure cooker for 15 minutes. Blend adding the butter and cream. Add the cumin and nutmeg.",
-        "appliance": "Blend",
+        "appliance": "Blender",
         "ustensils":["cocotte minute", "couteau", "cuillère en bois"]
     },
     {
@@ -1688,7 +1688,7 @@ const recipes = [
                 "unit": "tablespoons"
             }
         ],
-        "time": 0,
+        "time": 10,
         "description":"Chop the fruit. Liquefy in the blender. Chill. Serve",
         "appliance": "Blender",
         "ustensils":["couteau", "verres"]

@@ -123,6 +123,8 @@ function postRecipes() {
     const textBlockBody = document.createElement("div");
     const ingredientsSection = document.createElement("div");
     const recipeTextSection = document.createElement("div");
+    const applianceSection = document.createElement("div");
+    const utensilsSection = document.createElement("div");
 
     recipeBlock.setAttribute("id", `card-${recipes[i].id}`);
     recipeBlock.setAttribute("class", "col");
@@ -134,6 +136,10 @@ function postRecipes() {
     textBlockBody.setAttribute("class", "row mx-1 mt-2");
     ingredientsSection.setAttribute("class", "ingredientsBlock col fw-lighter");
     recipeTextSection.setAttribute("class", "recipe-description col fw-lighter");
+    applianceSection.setAttribute("class", "appliance-name");
+    applianceSection.setAttribute("style", "display: none");
+    utensilsSection.setAttribute("style", "display: none");
+    utensilsSection.setAttribute("class", "utensil-name");
 
     innerCardBlock.appendChild(cardImg);
     innerCardBlock.appendChild(textBlockHead);
@@ -144,10 +150,13 @@ function postRecipes() {
     cardsSection.appendChild(recipeBlock);
     textBlockBody.appendChild(ingredientsSection);
     textBlockBody.appendChild(recipeTextSection);
+    ingredientsSection.appendChild(applianceSection);
+    ingredientsSection.appendChild(utensilsSection);
 
     recipeName.innerHTML = recipes[i].name;
     cookTime.innerHTML = `<i class="far fa-clock"></i> ` + recipes[i].time + " min";
     recipeTextSection.innerHTML = recipes[i].description;
+    applianceSection.innerHTML = recipes[i].appliance;
 
     // Looping through ingredients arrays to post ingredients for each recipe
     for (let j = 0; j < recipes[i].ingredients.length; j++) {
@@ -176,6 +185,13 @@ function postRecipes() {
       ingredientsSection.appendChild(ingredient);
     }
 
+    // Looping through utensils arrays to post utensils for each recipe
+    for (let j = 0; j < recipes[i].ustensils.length; j++) {
+      const utensil = document.createElement("div");
+      utensil.innerHTML = recipes[i].ustensils[j];
+      utensilsSection.appendChild(utensil);
+    }
+
   }
 
 }
@@ -186,69 +202,65 @@ postRecipes();
 function searchAll() {
   let mainSearchInput = document.getElementById("main-search");
   let recipeName = document.querySelectorAll(".recipe-name");
-  let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
-  let recipeDescription = document.querySelectorAll(".recipe-description");
-
-  let getSiblings = function(e) {
-    let siblings = []; 
-    if (!e.parentNode) {
-      return siblings;
-    }
-    let sibling  = e.parentNode.firstChild;
-    while (sibling) {
-      if (sibling.nodeType === 1) {
-        siblings.push(sibling);
-      }
-      sibling = sibling.nextSibling;
-    }
-    return siblings;
-  };
-
-  for (let k = 0; k < ingredientsBlock.length; k++) {
-    let arr = [];
-    let siblings = getSiblings(ingredientsBlock[k].firstChild);
-    for (let l = 0; l < siblings.length; l++) {
-      arr.push(siblings[l].firstChild.innerHTML);
-    }
-    //console.log(arr.length);
-  };
 
   mainSearchInput.addEventListener("keyup", () => {
     for (let i = 0; i < recipeName.length; i++) {
+      let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
+      let recipeDescription = document.querySelectorAll(".recipe-description");
       let ingredientsList = document.querySelectorAll(".ingredients-list");
+      let appliancesList = document.querySelectorAll(".appliances-list");
+      let utensilsList = document.querySelectorAll(".utensils-list");
       let recipeCard = document.getElementById(`card-${i + 1}`);
       let recipeNameTxtValue = recipeName[i].textContent || recipeName[i].innerText;
       let ingredientsTxtValue = ingredientsBlock[i].textContent || ingredientsBlock[i].innerText;
       let descriptionTxtValue = recipeDescription[i].textContent || recipeDescription[i].innerText;
+      
       if(mainSearchInput.value.length > 2) {
         if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
           recipeCard.style.display = "";
+          // Filtering Ingredients dropdown
           for (let j = 0; j < ingredientsList.length; j++) {
-            if (ingredientsBlock[i].innerText.indexOf(ingredientsList[j].firstChild.innerText) > -1) {
+            if (ingredientsBlock[i].innerText.toUpperCase().indexOf(ingredientsList[j].firstChild.innerText.toUpperCase()) > -1) {
               ingredientsList[j].firstChild.style.display = "";
             } else {
               ingredientsList[j].firstChild.style.display = "none";
             }
           }
+          // Filtering Appliance dropdown
+          for (let j = 0; j < appliancesList.length; j++) {
+            if (ingredientsBlock[i].firstChild.innerText.toUpperCase().indexOf(appliancesList[j].firstChild.innerText.toUpperCase()) > -1) {
+              appliancesList[j].firstChild.style.display = "";
+            } else {
+              appliancesList[j].firstChild.style.display = "none";
+            }
+          }
+          // Filtering Utensil dropdown
+          for (let j = 0; j < utensilsList.length; j++) {
+            if (ingredientsBlock[i].firstChild.nextSibling.innerText.toUpperCase().indexOf(utensilsList[j].firstChild.innerText.toUpperCase()) > -1) {
+              utensilsList[j].firstChild.style.display = "";
+            } else {
+              utensilsList[j].firstChild.style.display = "none";
+            }
+          }
         } else {
           recipeCard.style.display = "none";
         }
+        // Displaying all dropdowns items if nothing is put into the search field
       } else {
         recipeCard.style.display = "";
         for (let j = 0; j < ingredientsList.length; j++) {
           ingredientsList[j].firstChild.style.display = "";
         }
+        for (let j = 0; j < appliancesList.length; j++) {
+          appliancesList[j].firstChild.style.display = "";
+        }
+        for (let j = 0; j < utensilsList.length; j++) {
+          utensilsList[j].firstChild.style.display = "";
+        }
       }
-      //console.log(ingredientsBlock[i].innerText);
     }
-  });
 
-  let ingredientsList = document.querySelectorAll(".ingredients-list");
-  for (let i = 0; i < recipeName.length; i++) {
-    for (let j = 0; j < ingredientsList.length; j++) {
-    }
-  }
-  console.log(ingredientsBlock[0].innerText);
+  });
 
 }
 
