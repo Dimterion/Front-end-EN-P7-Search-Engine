@@ -168,7 +168,7 @@ const recipes = [
                "unit": "tablespoons"
            },
            {
-               "ingredient": "grated Gruyere",
+               "ingredient": "Grated Gruyere",
                "quantity": 100,
                "unit": "grams"
            },
@@ -254,7 +254,7 @@ const recipes = [
         "time": 50,
         "description": "Spread the dough into the tartlet pans. Cook the dough for 30 minutes. Cut the chocolate into pieces and heat it up, add the liquid cream to it, add the butter and stir until you have a smooth paste. Pour the paste onto the tartlets. Cut the strawberries in half and place them on top ",
         "appliance":"Oven",
-        "ustensils":["moule à tartelettes (6)", "casserolle"]
+        "ustensils":["moule à tartelettes", "casserolle"]
     },
     {
         "id": 8,
@@ -286,7 +286,7 @@ const recipes = [
                "unit": "grams"
            },
            {
-                "ingredient": "flour",
+                "ingredient": "Flour",
                 "quantity": 90,
                 "unit": "grams"
            }
@@ -362,7 +362,7 @@ const recipes = [
         "time": 60,
         "description": "Begin by cooking the potatoes in boiling water. Then peel them and cut them into slices. Slice the onions and brown them in butter. Add the smoked ham cut and potatoes, both into pieces. Season to your taste (and that of your guests). Cook for around 10 minutes then add the white wine. After 5 minutes, place it all into a baking dish. Cut up the reblochon, either in slices, or cut into halves from the side and cover the potatoes. Bake (approximately 220°) for 25 minutes. It's ready!",
         "appliance":"Oven",
-        "ustensils": ["baking dish", "knife", "Peeling"]
+        "ustensils": ["baking dish", "knife", "peeling"]
     },
     {
         "id": 11,
@@ -459,7 +459,7 @@ const recipes = [
                 "unit":"tablespoon"
             },
             {
-                "ingredient": "olive oil",
+                "ingredient": "Olive oil",
                 "quantity": 2,
                 "unit": "tablespoon"
             }
@@ -539,7 +539,7 @@ const recipes = [
                 "unit": "grams"
             },
             {
-                "ingredient": "Banana",
+                "ingredient": "Bananas",
                 "quantity": 4
             }
         ],
@@ -574,7 +574,7 @@ const recipes = [
                 "unit":"vines"
             },
             {
-                "ingredient": "olive oil",
+                "ingredient": "Olive oil",
                 "quantity": 2,
                 "unit": "tablespoon"
             }
@@ -665,7 +665,7 @@ const recipes = [
                 "unit":"grams"
             },
             {
-                "ingredient": "Banana",
+                "ingredient": "Bananas",
                 "quantity": 1
             }
         ],
@@ -700,7 +700,7 @@ const recipes = [
                 "unit":"grams"
             },
             {
-                "ingredient": "olive oil",
+                "ingredient": "Olive oil",
                 "quantity": 1,
                 "unit": "tablespoons"
             }
@@ -747,8 +747,8 @@ const recipes = [
         ],
         "time": 30,
         "description":"Cook the minced meat in a frying pan. In another, cook the onions, chopped into thin cubes, with a bit of butter. Add some red wine. Mix the onions with the minced meat. Cook the pasta for the time shown on the packet. Add the tomato coulis to the minced meat. Once the pasta is cooked, add the crème fraîche to the minced meat. Serve.",
-        "appliance": "Pan.",
-        "ustensils":["Cuillère en bois", "louche", "couteau"]
+        "appliance": "Pan",
+        "ustensils":["cuillère en bois", "louche", "couteau"]
     },
     {
         "id": 22,
@@ -1087,7 +1087,7 @@ const recipes = [
         "time": 60,
         "description":"Chop the carrots and potatoes into cubes. Brown them off in the butter. Add the bacon. When the bacon is browned, add a large glass of water. Add the peas and the green beans (both pre-cooked). Add salt, pepper, thyme and bay leaves",
         "appliance": "Frying pan",
-        "ustensils":["Couteau", "économe"]
+        "ustensils":["couteau", "économe"]
     },
     {
         "id": 32,
@@ -1128,7 +1128,7 @@ const recipes = [
         "time": 20,
         "description":"Butter the slices of bread, add a slice of Emmental, one slice of turkey breast and another slice of Emmental between 2 slices of sandwich bread. In a bowl, mix the grated Gruyere with the milk and the nutmeg. Place on top of the croque monsieurs. Bake for 10 minutes.",
         "appliance": "Oven",
-        "ustensils":["râpe à fromage", "cuillère à Soupe", "couteau"]
+        "ustensils":["râpe à fromage", "cuillère à soupe", "couteau"]
     },
     {
         "id": 33,
@@ -1309,7 +1309,7 @@ const recipes = [
         "time": 60,
         "description":"Cut the zucchini lengthwise. Place the zucchini into a salad bowl. Set aside. Sauté the zucchini in 25cl of olive oil. Add the onion then the minced meat. Place the stuffing in the zucchini. Add the tomato coulis. Bake for 30 minutes. Before the end of baking, add the grated cheese",
         "appliance": "Oven",
-        "ustensils":["couteau", "cuillère en bois", "Poelle à frire"]
+        "ustensils":["couteau", "cuillère en bois", "poelle à frire"]
     },
     {
         "id": 38,
@@ -1339,7 +1339,7 @@ const recipes = [
         "time": 20,
         "description":"Whisk the eggs, sugar and milk. Soak the bread slices. Bake for approximately 10 minutes at 180°. Serve",
         "appliance": "Oven",
-        "ustensils":["fouet", "bol","Cuillère à Soupe"]
+        "ustensils":["fouet", "bol","cuillère à soupe"]
     },
     {
         "id": 39,
@@ -1514,7 +1514,7 @@ const recipes = [
                 "unit":"grams"
             },
             {
-                "ingredient": "flour",
+                "ingredient": "Flour",
                 "quantity": 40,
                 "unit": "grams"
             }

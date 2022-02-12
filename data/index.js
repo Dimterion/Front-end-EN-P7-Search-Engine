@@ -5,6 +5,7 @@ function addIngredientTags() {
   const ingredientsDropdown = document.querySelector(".ingredients-dropdown");
 
   let uniqueIngredientsArray = [];
+
   // Getting all ingredients from the recipes array and pushing only unique ones into the uniqueIngredientsArray
   function getAllIngredients() {
     let getAllIngredientsArray = [];
@@ -23,6 +24,7 @@ function addIngredientTags() {
   const li = document.createElement("li");
   const a = document.createElement("a");
 
+  li.setAttribute("class", "ingredients-list");
   a.setAttribute("href", "#");
 
   li.appendChild(a);
@@ -34,6 +36,78 @@ function addIngredientTags() {
 }
 
 addIngredientTags();
+
+// Pushing all appliancess into the Appliance dropdown menu
+function addApplianceTags() {
+  const appliancesDropdown = document.querySelector(".appliance-dropdown");
+
+  let uniqueAppliancesArray = [];
+
+  // Getting all appliances from the recipes array and pushing only unique ones into the uniqueAppliancesArray
+  function getAllAppliances() {
+    let getAllAppliancesArray = [];
+    for (let i = 0; i < recipes.length; i++) {
+      getAllAppliancesArray.push(recipes[i].appliance);
+    }
+    uniqueAppliancesArray = [...new Set(getAllAppliancesArray)];
+  }
+
+  getAllAppliances();
+
+  // Creating HTML elements for each appliance and adding them to the dropdown menu
+  for (let i = 0; i < uniqueAppliancesArray.length; i++) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+
+  li.setAttribute("class", "appliances-list");
+  a.setAttribute("href", "#");
+
+  li.appendChild(a);
+  appliancesDropdown.appendChild(li);
+
+  a.innerHTML = uniqueAppliancesArray[i];
+  }
+
+}
+
+addApplianceTags();
+
+// Pushing all utensils into the Utensils dropdown menu
+function addUtensilTags() {
+  const utensilsDropdown = document.querySelector(".utensils-dropdown");
+
+  let uniqueUtensilsArray = [];
+
+  // Getting all utensils from the recipes array and pushing only unique ones into the uniqueUtensilsArray
+  function getAllUtensils() {
+    let getAllUtensilsArray = [];
+    for (let i = 0; i < recipes.length; i++) {
+      for (let j = 0; j < recipes[i].ustensils.length; j++) {
+        getAllUtensilsArray.push(recipes[i].ustensils[j]);
+      }
+    }
+    uniqueUtensilsArray = [...new Set(getAllUtensilsArray)];
+  }
+
+  getAllUtensils();
+
+  // Creating HTML elements for each utensil and adding them to the dropdown menu
+  for (let i = 0; i < uniqueUtensilsArray.length; i++) {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+
+  li.setAttribute("class", "utensils-list");
+  a.setAttribute("href", "#");
+
+  li.appendChild(a);
+  utensilsDropdown.appendChild(li);
+
+  a.innerHTML = uniqueUtensilsArray[i];
+  }
+
+}
+
+addUtensilTags();
 
 // Creating a container for each recipe
 function postRecipes() {
@@ -96,7 +170,7 @@ function postRecipes() {
         ingredient.innerHTML = `<h6 class="text-reset">` + recipes[i].ingredients[j].ingredient + `</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
       } else {
         ingredientsQuantity = recipes[i].ingredients[j].quantity;
-        ingredient.innerHTML = `<h6 class="text-reset">` + recipes[i].ingredients[j].ingredient + `:</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
+        ingredient.innerHTML = `<h6 class="text-reset">` + recipes[i].ingredients[j].ingredient + `</h6><p>${ingredientsQuantity} ${ingredientsUnit}</p>`;
       }
       
       ingredientsSection.appendChild(ingredient);
@@ -115,8 +189,33 @@ function searchAll() {
   let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
   let recipeDescription = document.querySelectorAll(".recipe-description");
 
+  let getSiblings = function(e) {
+    let siblings = []; 
+    if (!e.parentNode) {
+      return siblings;
+    }
+    let sibling  = e.parentNode.firstChild;
+    while (sibling) {
+      if (sibling.nodeType === 1) {
+        siblings.push(sibling);
+      }
+      sibling = sibling.nextSibling;
+    }
+    return siblings;
+  };
+
+  for (let k = 0; k < ingredientsBlock.length; k++) {
+    let arr = [];
+    let siblings = getSiblings(ingredientsBlock[k].firstChild);
+    for (let l = 0; l < siblings.length; l++) {
+      arr.push(siblings[l].firstChild.innerHTML);
+    }
+    //console.log(arr.length);
+  };
+
   mainSearchInput.addEventListener("keyup", () => {
     for (let i = 0; i < recipeName.length; i++) {
+      let ingredientsList = document.querySelectorAll(".ingredients-list");
       let recipeCard = document.getElementById(`card-${i + 1}`);
       let recipeNameTxtValue = recipeName[i].textContent || recipeName[i].innerText;
       let ingredientsTxtValue = ingredientsBlock[i].textContent || ingredientsBlock[i].innerText;
@@ -124,14 +223,32 @@ function searchAll() {
       if(mainSearchInput.value.length > 2) {
         if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
           recipeCard.style.display = "";
+          for (let j = 0; j < ingredientsList.length; j++) {
+            if (ingredientsBlock[i].innerText.indexOf(ingredientsList[j].firstChild.innerText) > -1) {
+              ingredientsList[j].firstChild.style.display = "";
+            } else {
+              ingredientsList[j].firstChild.style.display = "none";
+            }
+          }
         } else {
           recipeCard.style.display = "none";
         }
       } else {
-      recipeCard.style.display = "";
+        recipeCard.style.display = "";
+        for (let j = 0; j < ingredientsList.length; j++) {
+          ingredientsList[j].firstChild.style.display = "";
+        }
       }
+      //console.log(ingredientsBlock[i].innerText);
     }
   });
+
+  let ingredientsList = document.querySelectorAll(".ingredients-list");
+  for (let i = 0; i < recipeName.length; i++) {
+    for (let j = 0; j < ingredientsList.length; j++) {
+    }
+  }
+  console.log(ingredientsBlock[0].innerText);
 
 }
 
