@@ -1730,4 +1730,4 @@ const recipes = [
     }
 ];
 
-export {recipes};
+export { recipes };

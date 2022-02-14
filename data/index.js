@@ -1,5 +1,5 @@
 import { recipes } from "./recipes.js";
-import {ingredientsTags} from "./tags.js";
+import { ingredientsTags, appliancesTags, utensilsTags } from "./tags.js";
 
 // Pushing all ingredients into the Ingredients dropdown menu
 function addIngredientsToDropdown() {
@@ -26,7 +26,8 @@ function addIngredientsToDropdown() {
   const a = document.createElement("a");
 
   li.setAttribute("class", "ingredients-list");
-  a.setAttribute("href", "#");
+  a.setAttribute("class", " text-white");
+  a.setAttribute("style", " cursor: pointer");
 
   li.appendChild(a);
   ingredientsDropdown.appendChild(li);
@@ -61,7 +62,8 @@ function addApplianceTags() {
   const a = document.createElement("a");
 
   li.setAttribute("class", "appliances-list");
-  a.setAttribute("href", "#");
+  a.setAttribute("class", " text-white");
+  a.setAttribute("style", " cursor: pointer");
 
   li.appendChild(a);
   appliancesDropdown.appendChild(li);
@@ -98,7 +100,8 @@ function addUtensilTags() {
   const a = document.createElement("a");
 
   li.setAttribute("class", "utensils-list");
-  a.setAttribute("href", "#");
+  a.setAttribute("class", " text-white");
+  a.setAttribute("style", " cursor: pointer");
 
   li.appendChild(a);
   utensilsDropdown.appendChild(li);
@@ -269,3 +272,5 @@ searchAll();
 
 // Imported functions
 ingredientsTags();
+appliancesTags();
+utensilsTags();
