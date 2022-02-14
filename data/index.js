@@ -1,7 +1,8 @@
 import { recipes } from "./recipes.js";
+import {ingredientsTags} from "./tags.js";
 
 // Pushing all ingredients into the Ingredients dropdown menu
-function addIngredientTags() {
+function addIngredientsToDropdown() {
   const ingredientsDropdown = document.querySelector(".ingredients-dropdown");
 
   let uniqueIngredientsArray = [];
@@ -35,7 +36,7 @@ function addIngredientTags() {
 
 }
 
-addIngredientTags();
+addIngredientsToDropdown();
 
 // Pushing all appliancess into the Appliance dropdown menu
 function addApplianceTags() {
@@ -126,8 +127,8 @@ function postRecipes() {
     const applianceSection = document.createElement("div");
     const utensilsSection = document.createElement("div");
 
-    recipeBlock.setAttribute("id", `card-${recipes[i].id}`);
-    recipeBlock.setAttribute("class", "col");
+    recipeBlock.setAttribute("class", "recipe-card col");
+    recipeBlock.setAttribute("style", "display");
     innerCardBlock.setAttribute("class", "card h-100 bg-secondary");
     cardImg.setAttribute("src", "assets/img-placeholder.jpg");
     textBlockHead.setAttribute("class", "row mt-2");
@@ -210,14 +211,14 @@ function searchAll() {
       let ingredientsList = document.querySelectorAll(".ingredients-list");
       let appliancesList = document.querySelectorAll(".appliances-list");
       let utensilsList = document.querySelectorAll(".utensils-list");
-      let recipeCard = document.getElementById(`card-${i + 1}`);
+      let recipeCard = document.querySelectorAll(".recipe-card");
       let recipeNameTxtValue = recipeName[i].textContent || recipeName[i].innerText;
       let ingredientsTxtValue = ingredientsBlock[i].textContent || ingredientsBlock[i].innerText;
       let descriptionTxtValue = recipeDescription[i].textContent || recipeDescription[i].innerText;
       
       if(mainSearchInput.value.length > 2) {
         if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
-          recipeCard.style.display = "";
+          recipeCard[i].style.display = "";
           // Filtering Ingredients dropdown
           for (let j = 0; j < ingredientsList.length; j++) {
             if (ingredientsBlock[i].innerText.toUpperCase().indexOf(ingredientsList[j].firstChild.innerText.toUpperCase()) > -1) {
@@ -243,11 +244,11 @@ function searchAll() {
             }
           }
         } else {
-          recipeCard.style.display = "none";
+          recipeCard[i].style.display = "none";
         }
         // Displaying all dropdowns items if nothing is put into the search field
       } else {
-        recipeCard.style.display = "";
+        recipeCard[i].style.display = "";
         for (let j = 0; j < ingredientsList.length; j++) {
           ingredientsList[j].firstChild.style.display = "";
         }
@@ -266,27 +267,5 @@ function searchAll() {
 
 searchAll();
 
-// Ingredients search functionality
-/*function searchIngredients() {
-  let ingredientsInput = document.getElementById("ingredients-input");
-  let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
-
-  ingredientsInput.addEventListener("keyup", () => {
-    for (let j = 0; j < ingredientsBlock.length; j++) {
-      let recipeCard = document.getElementById(`card-${j + 1}`);
-      let txtValue = ingredientsBlock[j].textContent || ingredientsBlock[j].innerText;
-      if(ingredientsInput.value.length > 2) {
-        if (txtValue.toUpperCase().indexOf(ingredientsInput.value.toUpperCase()) > -1) {
-          recipeCard.style.display = "";
-        } else {
-          recipeCard.style.display = "none";
-        }
-      } else {
-      recipeCard.style.display = "";
-      }
-    }
-  });
-
-}
-
-searchIngredients();*/
+// Imported functions
+ingredientsTags();
