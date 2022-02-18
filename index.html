@@ -33,13 +33,14 @@
       <div id="tags-area-ingredients" class="container ms-md-5 row-cols-2 row-cols-md-6"></div>
       <div id="tags-area-appliances" class="container ms-md-5 row-cols-2 row-cols-md-6"></div>
       <div id="tags-area-utensils" class="container ms-md-5 row-cols-2 row-cols-md-6"></div>
-      <!-- Search buttons -->
+      <!-- Advanced search buttons -->
         <div class="container ms-md-5 mt-3 row-cols-2 row-cols-md-6">
           <div class="btn-group mb-2">
             <button class="btn btn-primary btn-lg dropdown-toggle text-white d-inline-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Ingredients
             </button>
             <ul class="ingredients-dropdown dropdown-menu bg-primary">
+              <input type="search" id="ingredients-search" class="form-control bg-primary border-0" placeholder="Search an ingredient" aria-label="Ingredients search">
             </ul>
           </div>
           <div class="btn-group mb-2">
@@ -47,6 +48,7 @@
               Appliance
             </button>
             <ul class="appliance-dropdown dropdown-menu bg-success">
+              <input type="search" id="appliances-search" class="form-control bg-success border-0" placeholder="Search an appliance" aria-label="Appliances search">
             </ul>
           </div>
           <div class="btn-group mb-2">
@@ -54,11 +56,12 @@
               Utensils
             </button>
             <ul class="utensils-dropdown dropdown-menu bg-danger">
+              <input type="search" id="utensils-search" class="form-control bg-danger border-0" placeholder="Search a utensil" aria-label="Utensils search">
             </ul>
           </div>
         </div>
         <!-- Recipes cards -->
-        <div class="row row-cols-1 row-cols-md-3 g-4 mt-1 mb-3 mx-5"></div>
+        <div id="cardsArea" class="row row-cols-1 row-cols-md-3 g-4 mt-1 mb-3 mx-5"></div>
     </main>
     <!-- Scripts -->
     <script type="module" src="data/index.js"></script>

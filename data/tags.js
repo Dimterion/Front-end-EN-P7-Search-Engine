@@ -3,6 +3,7 @@ function ingredientsTags() {
   const ingredientsList = document.querySelectorAll(".ingredients-list");
   const tagsArea = document.querySelector("#tags-area-ingredients");
   const ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
+  const recipeCard = document.querySelectorAll(".recipe-card");
 
   for (let i = 0; i < ingredientsList.length; i++) {
     ingredientsList[i].addEventListener("click", () => {
@@ -18,7 +19,6 @@ function ingredientsTags() {
       tagsArea.appendChild(ingredientTag);
       ingredientsList[i].style.display = "none";
       for (let j = 0; j < ingredientsBlock.length; j++) {
-        const recipeCard = document.querySelectorAll(".recipe-card");
         if (ingredientsBlock[j].innerText.indexOf(ingredientsList[i].firstChild.innerText) > -1) {
           recipeCard[j].style.display = "";
         }
@@ -26,6 +26,13 @@ function ingredientsTags() {
           recipeCard[j].style.display = "none";
         }
       }
+      ingredientTag.addEventListener("click", () => {
+        tagsArea.removeChild(ingredientTag);
+        ingredientsList[i].style.display = "";
+        for (let j = 0; j < ingredientsBlock.length; j++) {
+        recipeCard[j].style.display = "";
+        }
+      });
     });
   }
 }

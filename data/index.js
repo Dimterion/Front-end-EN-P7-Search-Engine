@@ -159,8 +159,18 @@ function postRecipes() {
 
     recipeName.innerHTML = recipes[i].name;
     cookTime.innerHTML = `<i class="far fa-clock"></i> ` + recipes[i].time + " min";
+    // Recipes text display without truncation
     recipeTextSection.innerHTML = recipes[i].description;
     applianceSection.innerHTML = recipes[i].appliance;
+
+    /*
+    // Truncating recipes text length if it's longer than 150 characters
+    if (recipeTextSection.length < 150) {
+      recipeTextSection.innerHTML = recipes[i].description;
+    } else {
+      recipeTextSection.innerHTML = recipes[i].description.substring(0, 150) + "...";
+    }
+    */
 
     // Looping through ingredients arrays to post ingredients for each recipe
     for (let j = 0; j < recipes[i].ingredients.length; j++) {
@@ -211,9 +221,11 @@ function searchAll() {
     for (let i = 0; i < recipeName.length; i++) {
       let ingredientsBlock = document.querySelectorAll(".ingredientsBlock");
       let recipeDescription = document.querySelectorAll(".recipe-description");
+      /* Not needed
       let ingredientsList = document.querySelectorAll(".ingredients-list");
       let appliancesList = document.querySelectorAll(".appliances-list");
       let utensilsList = document.querySelectorAll(".utensils-list");
+      */
       let recipeCard = document.querySelectorAll(".recipe-card");
       let recipeNameTxtValue = recipeName[i].textContent || recipeName[i].innerText;
       let ingredientsTxtValue = ingredientsBlock[i].textContent || ingredientsBlock[i].innerText;
@@ -222,6 +234,7 @@ function searchAll() {
       if(mainSearchInput.value.length > 2) {
         if (recipeNameTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || ingredientsTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1 || descriptionTxtValue.toUpperCase().indexOf(mainSearchInput.value.toUpperCase()) > -1) {
           recipeCard[i].style.display = "";
+          /* Not needed
           // Filtering Ingredients dropdown
           for (let j = 0; j < ingredientsList.length; j++) {
             if (ingredientsBlock[i].innerText.toUpperCase().indexOf(ingredientsList[j].firstChild.innerText.toUpperCase()) > -1) {
@@ -246,12 +259,14 @@ function searchAll() {
               utensilsList[j].firstChild.style.display = "none";
             }
           }
+          */
         } else {
           recipeCard[i].style.display = "none";
         }
-        // Displaying all dropdowns items if nothing is put into the search field
       } else {
         recipeCard[i].style.display = "";
+        /* Not needed
+        // Displaying all dropdowns items if nothing is put into the search field
         for (let j = 0; j < ingredientsList.length; j++) {
           ingredientsList[j].firstChild.style.display = "";
         }
@@ -261,6 +276,7 @@ function searchAll() {
         for (let j = 0; j < utensilsList.length; j++) {
           utensilsList[j].firstChild.style.display = "";
         }
+        */
       }
     }
 
