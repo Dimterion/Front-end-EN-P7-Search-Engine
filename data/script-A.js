@@ -19,7 +19,7 @@ function displayRecipes(filter) {
     let recipeIngredients = [];
 
     for (let ingredient of recipe.ingredients) {
-      recipeIngredients.push(ingredient.ingredient)
+      recipeIngredients.push(ingredient.ingredient);
     }
 
     let recipeIngredientsLowerCase = [];
@@ -32,7 +32,7 @@ function displayRecipes(filter) {
     if (recipeNameLowerCase.includes(filter) || recipe.name.includes(filter) || recipeDescriptionLowerCase.includes(filter) || recipe.description.includes(filter) || recipeIngredientsLowerCase.includes(filter) || recipeIngredients.includes(filter)) {
       filteredRecipes.push(recipe);
     }
-  };
+  }
 
   // Displaying message about no results if search shows nothing
   const noResultsMsg = document.getElementById("no-results-message");
@@ -115,7 +115,7 @@ function displayRecipes(filter) {
     // Tags function
     createTags();
   }
-};
+}
 
 displayRecipes(filter);
 
@@ -124,7 +124,7 @@ function removeContent(e) {
   while (e.firstChild) {
     e.removeChild(e.firstChild);
   }
-};
+}
 
 // Main search functionality
 const mainSearch = document.getElementById("main-search");
@@ -145,7 +145,7 @@ for (let recipe of recipes) {
   for (let ingredient of recipe.ingredients) {
     allIngredients.push(ingredient.ingredient);
   }
-};
+}
 
 // Storing only unique ingredients in the array
 let allUniqueIngredients = [...new Set(allIngredients)];
@@ -186,14 +186,14 @@ for (let uniqueIngredient of allUniqueIngredients) {
       createTags();
     });
   });
-};
+}
 
 // Setting unique ingredients to lower case and adding a key listener for the search functionality - using for loop
 let allUniqueIngredientsLowerCase = [];
 
 for (let uniqueIngredient of allUniqueIngredients) {
   allUniqueIngredientsLowerCase.push(uniqueIngredient.toLowerCase());
-};
+}
 
 const ingredientsSearch = document.getElementById("ingredients-search");
 
@@ -240,7 +240,7 @@ let allAppliances = [];
 
 for (let recipe of recipes) {
   allAppliances.push(recipe.appliance);
-};
+}
 
 // Storing only unique devices in the array
 let allUniqueAppliances = [...new Set(allAppliances)];
@@ -281,14 +281,14 @@ for (let uniqueAppliance of allUniqueAppliances) {
       createTags();
     });
   });
-};
+}
 
 // Setting unique appliances to lower case and adding a key listener for the search functionality - using for loop
 let allUniqueAppliancesLowerCase = [];
 
 for (let uniqueAppliance of allUniqueAppliances) {
   allUniqueAppliancesLowerCase.push(uniqueAppliance.toLowerCase());
-};
+}
 
 const appliancesSearch = document.getElementById("appliances-search");
 
@@ -337,7 +337,7 @@ for (let recipe of recipes) {
   for (let utensil of recipe.ustensils) {
     allUtensils.push(utensil);
   }
-};
+}
 
 // Storing only unique utensils in the array
 let allUniqueUtensils = [...new Set(allUtensils)];
@@ -378,14 +378,14 @@ for (let uniqueUtensil of allUniqueUtensils) {
       createTags();
     });
   });
-};
+}
 
 // Setting unique utensils to lower case and adding a key listener for the search functionality - using for loop
 let allUniqueUtensilsLowerCase = [];
 
 for (let uniqueUtensil of allUniqueUtensils) {
   allUniqueUtensilsLowerCase.push(uniqueUtensil.toLowerCase());
-};
+}
 
 const utensilsSearch = document.getElementById("utensils-search");
 
@@ -456,4 +456,4 @@ function createTags() {
       }
     }
   }
-};
+}

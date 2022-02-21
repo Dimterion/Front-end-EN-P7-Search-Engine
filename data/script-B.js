@@ -106,7 +106,7 @@ function displayRecipes(filter) {
     // Tags function
     createTags();
   });
-};
+}
 
 displayRecipes(filter);
 
@@ -115,7 +115,7 @@ function removeContent(e) {
   while (e.firstChild) {
     e.removeChild(e.firstChild);
   }
-};
+}
 
 // Main search functionality
 const mainSearch = document.getElementById("main-search");
@@ -423,4 +423,4 @@ function createTags() {
       }
     }
   }
-};
+}
