@@ -9,9 +9,11 @@ function displayRecipes(filter) {
   const recipesContainer = document.getElementById("cards-area");
 
   removeContent(recipesContainer);
-  
-  //2.
-  const filteredRecipes = recipes.filter(recipe => {
+
+  // Array to store filtered recipes - for loops usage
+  let filteredRecipes = [];
+
+  for (let recipe of recipes) {
     let recipeNameLowerCase = recipe.name.toLowerCase();
     let recipeDescriptionLowerCase = recipe.description.toLowerCase();
     let recipeIngredients = [];
@@ -19,12 +21,19 @@ function displayRecipes(filter) {
     for (let ingredient of recipe.ingredients) {
       recipeIngredients.push(ingredient.ingredient)
     }
-    //3.
-    let recipeIngredientsLowerCase = recipeIngredients.map(e => e.toLowerCase());
-    //3.
-    return recipeNameLowerCase.includes(filter) || recipe.name.includes(filter) || recipeDescriptionLowerCase.includes(filter) || recipe.description.includes(filter) || recipeIngredientsLowerCase.includes(filter) || recipeIngredients.includes(filter);
-  });
-  //2.
+
+    let recipeIngredientsLowerCase = [];
+
+    for (let recipeIngredient of recipeIngredients) {
+      recipeIngredientsLowerCase.push(recipeIngredient.toLowerCase());
+    }
+
+    // Pushing to the array only those recipes that include filter
+    if (recipeNameLowerCase.includes(filter) || recipe.name.includes(filter) || recipeDescriptionLowerCase.includes(filter) || recipe.description.includes(filter) || recipeIngredientsLowerCase.includes(filter) || recipeIngredients.includes(filter)) {
+      filteredRecipes.push(recipe);
+    }
+  };
+
   // Displaying message about no results if search shows nothing
   const noResultsMsg = document.getElementById("no-results-message");
 
@@ -36,7 +45,7 @@ function displayRecipes(filter) {
     noResultsMsg.style.display = "";
   }
 
-  // Creating elements for all recipes
+  // Creating elements for all recipes - using for loop
   for (let recipe of filteredRecipes) {
     const recipeCard = document.createElement("div");
     const cardImg = document.createElement("img");
@@ -60,7 +69,7 @@ function displayRecipes(filter) {
 
     recipeCard.setAttribute("class", "recipe-card col-md-6 col-lg-4 my-3");
 
-    // Adding classes for ingredients, devices and utensils for tags functionality
+    // Adding classes for ingredients, devices and utensils for tags functionality - using for loop
     for (let ingredients of recipe.ingredients) {
       recipeCard.classList.add(ingredients.ingredient.split(" ").join("-").toLowerCase());
     }
@@ -85,7 +94,7 @@ function displayRecipes(filter) {
     recipeName.innerHTML = recipe.name;
     recipeTime.innerHTML = `<b><i class="far fa-clock"></i> ` + recipe.time + `min</b>`;
 
-    // Displaying ingredients depending on their quantities and units
+    // Displaying ingredients depending on their quantities and units - using forLoop
     for (let ingredient of recipe.ingredients) {
       if (ingredient.quantity != undefined && ingredient.unit != undefined) {
         recipeIngredients.innerHTML = recipeIngredients.innerHTML + `<b>` + ingredient.ingredient + `: ` + `</b>` + ingredient.quantity + ` ` + ingredient.unit + `<br>`;
@@ -129,7 +138,7 @@ mainSearch.addEventListener("keyup", () => {
   }
 });
 
-// Displaying all the ingredients for the advanced search buttons
+// Displaying all the ingredients for the advanced search buttons - using for loop
 let allIngredients = [];
 
 for (let recipe of recipes) {
@@ -143,7 +152,7 @@ let allUniqueIngredients = [...new Set(allIngredients)];
 
 const ingredientsDropdown = document.getElementById("ingredients-dropdown");
 
-// Setting attributes for each unique ingredient in the dropdown menu and adding the tags function to filter recipes on click
+// Setting attributes for each unique ingredient in the dropdown menu and adding the tags function to filter recipes on click - using for loop
 for (let uniqueIngredient of allUniqueIngredients) {
   const ingredientMenuItem = document.createElement("a");
 
@@ -179,8 +188,12 @@ for (let uniqueIngredient of allUniqueIngredients) {
   });
 };
 
-// Setting unique ingredients to lower case and adding a key listener for the search functionality
-const allUniqueIngredientsLowerCase = allUniqueIngredients.map(e => e.toLowerCase());
+// Setting unique ingredients to lower case and adding a key listener for the search functionality - using for loop
+let allUniqueIngredientsLowerCase = [];
+
+for (let uniqueIngredient of allUniqueIngredients) {
+  allUniqueIngredientsLowerCase.push(uniqueIngredient.toLowerCase());
+};
 
 const ingredientsSearch = document.getElementById("ingredients-search");
 
@@ -188,10 +201,14 @@ ingredientsSearch.addEventListener("keyup", () => {
   if (ingredientsSearch.value.length > 2) {
     let filter = ingredientsSearch.value.toLowerCase();
 
-    // Filtering unique ingredients to return only those that include filter
-    let filteredIngredients = allUniqueIngredientsLowerCase.filter(ingredient => {
-      return ingredient.includes(filter);
-    });
+    // Filtering unique ingredients to return only those that include filter - using for loop
+    let filteredIngredients = [];
+
+    for (let uniqueIngredientLowerCase of allUniqueIngredientsLowerCase) {
+      if (uniqueIngredientLowerCase.includes(filter)) {
+        filteredIngredients.push(uniqueIngredientLowerCase);
+      }
+    }
 
     let allIngredients = document.getElementsByClassName("ingredient");
 
@@ -218,7 +235,7 @@ ingredientsSearch.addEventListener("keyup", () => {
   }
 });
 
-// Displaying all the appliances for the advanced search buttons
+// Displaying all the appliances for the advanced search buttons - using for loop
 let allAppliances = [];
 
 for (let recipe of recipes) {
@@ -230,7 +247,7 @@ let allUniqueAppliances = [...new Set(allAppliances)];
 
 const appliancesDropdown = document.getElementById("appliances-dropdown");
 
-// Setting attributes for each unique appliance in the dropdown menu and adding the tags function to filter recipes on click
+// Setting attributes for each unique appliance in the dropdown menu and adding the tags function to filter recipes on click - using for loop
 for (let uniqueAppliance of allUniqueAppliances) {
   const applianceMenuItem = document.createElement("a");
 
@@ -266,8 +283,12 @@ for (let uniqueAppliance of allUniqueAppliances) {
   });
 };
 
-// Setting unique appliances to lower case and adding a key listener for the search functionality
-const allUniqueAppliancesLowerCase = allUniqueAppliances.map(e => e.toLowerCase());
+// Setting unique appliances to lower case and adding a key listener for the search functionality - using for loop
+let allUniqueAppliancesLowerCase = [];
+
+for (let uniqueAppliance of allUniqueAppliances) {
+  allUniqueAppliancesLowerCase.push(uniqueAppliance.toLowerCase());
+};
 
 const appliancesSearch = document.getElementById("appliances-search");
 
@@ -275,10 +296,14 @@ appliancesSearch.addEventListener("keyup", () => {
   if (appliancesSearch.value.length > 2) {
     let filter = appliancesSearch.value.toLowerCase();
 
-    // Filtering unique appliances to return only those that include filter
-    let filteredAppliances = allUniqueAppliancesLowerCase.filter(appliance => {
-      return appliance.includes(filter);
-    });
+    // Filtering unique appliances to return only those that include filter - using for loop
+    let filteredAppliances = [];
+
+    for (let uniqueApplianceLowerCase of allUniqueAppliancesLowerCase) {
+      if (uniqueApplianceLowerCase.includes(filter)) {
+        filteredAppliances.push(uniqueApplianceLowerCase);
+      }
+    }
 
     let allAppliances = document.getElementsByClassName("appliance");
 
@@ -305,7 +330,7 @@ appliancesSearch.addEventListener("keyup", () => {
   }
 });
 
-// Displaying all the utensils for the advanced search buttons
+// Displaying all the utensils for the advanced search buttons - using for loop
 let allUtensils = [];
 
 for (let recipe of recipes) {
@@ -319,7 +344,7 @@ let allUniqueUtensils = [...new Set(allUtensils)];
 
 const utensilsDropdown = document.getElementById("utensils-dropdown");
 
-// Setting attributes for each unique utensil in the dropdown menu and adding the tags function to filter recipes on click
+// Setting attributes for each unique utensil in the dropdown menu and adding the tags function to filter recipes on click - using for loop
 for (let uniqueUtensil of allUniqueUtensils) {
   const utensilMenuItem = document.createElement("a");
 
@@ -355,8 +380,12 @@ for (let uniqueUtensil of allUniqueUtensils) {
   });
 };
 
-// Setting unique utensils to lower case and adding a key listener for the search functionality
-const allUniqueUtensilsLowerCase = allUniqueUtensils.map(e => e.toLowerCase());
+// Setting unique utensils to lower case and adding a key listener for the search functionality - using for loop
+let allUniqueUtensilsLowerCase = [];
+
+for (let uniqueUtensil of allUniqueUtensils) {
+  allUniqueUtensilsLowerCase.push(uniqueUtensil.toLowerCase());
+};
 
 const utensilsSearch = document.getElementById("utensils-search");
 
@@ -364,10 +393,14 @@ utensilsSearch.addEventListener("keyup", () => {
   if (utensilsSearch.value.length > 2) {
     let filter = utensilsSearch.value.toLowerCase();
 
-    // Filtering unique utensils to return only those that include filter
-    let filteredUtensils = allUniqueUtensilsLowerCase.filter(utensil => {
-      return utensil.includes(filter);
-    });
+    // Filtering unique utensils to return only those that include filter - using for loop
+    let filteredUtensils = [];
+
+    for (let uniqueUtensilLowerCase of allUniqueUtensilsLowerCase) {
+      if (uniqueUtensilLowerCase.includes(filter)) {
+        filteredUtensils.push(uniqueUtensilLowerCase);
+      }
+    }
 
     let allUtensils = document.getElementsByClassName("utensil");
 
