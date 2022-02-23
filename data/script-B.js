@@ -170,7 +170,7 @@ allUniqueIngredients.forEach(uniqueIngredient => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-primary col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-primary col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = ingredientMenuItem.innerHTML;
 
@@ -261,7 +261,7 @@ allUniqueAppliances.forEach(uniqueAppliance => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-success col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-success col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = applianceMenuItem.innerHTML;
 
@@ -354,7 +354,7 @@ allUniqueUtensils.forEach(uniqueUtensil => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-danger col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-danger col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = utensilMenuItem.innerHTML;
 

@@ -179,7 +179,7 @@ for (let uniqueIngredient of allUniqueIngredients) {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-primary col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-primary col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = ingredientMenuItem.innerHTML;
 
@@ -278,7 +278,7 @@ for (let uniqueAppliance of allUniqueAppliances) {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-success col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-success col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = applianceMenuItem.innerHTML;
 
@@ -379,7 +379,7 @@ for (let uniqueUtensil of allUniqueUtensils) {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-danger col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
+    indTag.setAttribute("class", "btn btn-danger col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-center my-2");
 
     indTag.innerHTML = utensilMenuItem.innerHTML;
 

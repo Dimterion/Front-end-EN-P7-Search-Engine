@@ -11983,6 +11983,11 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+/* Adjusted search field height */
+.input-group.mb-3 {
+  height: 7vh;
+}
+
 /* Dropdown menus display and recipes containers height adjustments */
 @media (min-width: 992px) {
   #dropdown-ingredients-block {
@@ -12008,7 +12013,56 @@ input[type="search"]::-webkit-search-results-decoration {
     max-height: 390px;
   }
   .main-container {
+    height: 450px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-container {
     height: 300px;
+  }
+}
+
+/* Adjusted buttons and tags sizes */
+.btn.btn-primary.btn-lg.dropdown-toggle, .btn-group-lg > .btn.btn-primary.dropdown-toggle {
+  height: 8vh;
+}
+
+.btn.btn-success.btn-lg.dropdown-toggle, .btn-group-lg > .btn.btn-success.dropdown-toggle {
+  height: 8vh;
+}
+
+.btn.btn-danger.btn-lg.dropdown-toggle, .btn-group-lg > .btn.btn-danger.dropdown-toggle {
+  height: 8vh;
+}
+
+.btn.btn-primary.col-2 {
+  height: 12vh;
+  width: 30vw;
+}
+
+.btn.btn-success.col-2 {
+  height: 12vh;
+  width: 30vw;
+}
+
+.btn.btn-danger.col-2 {
+  height: 12vh;
+  width: 30vw;
+}
+
+@media (min-width: 992px) {
+  .btn.btn-primary.col-2 {
+    height: 8vh;
+    width: 12vw;
+  }
+  .btn.btn-success.col-2 {
+    height: 8vh;
+    width: 12vw;
+  }
+  .btn.btn-danger.col-2 {
+    height: 8vh;
+    width: 12vw;
   }
 }
 
@@ -12054,7 +12108,7 @@ button.btn.btn-danger.btn-lg.dropdown-toggle.text-white.d-inline-flex.justify-co
   vertical-align: middle;
 }
 
-/* Adjusted colors for scrolling and hovering in the dropdown menus */
+/* Adjusted colors for placeholders, scrolling and hovering in the dropdown menus */
 #dropdown-ingredients-block::-webkit-scrollbar {
   width: 5px;
 }
@@ -12081,5 +12135,17 @@ button.btn.btn-danger.btn-lg.dropdown-toggle.text-white.d-inline-flex.justify-co
 #dropdown-utensils-block a:hover {
   color: black !important;
   background-color: #ED6454;
+}
+
+#ingredients-search::-webkit-input-placeholder {
+  color: #a7adcf;
+}
+
+#appliances-search::-webkit-input-placeholder {
+  color: #c6d6be;
+}
+
+#utensils-search::-webkit-input-placeholder {
+  color: #dac5c5;
 }
 /*# sourceMappingURL=style.css.map */
