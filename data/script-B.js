@@ -74,7 +74,7 @@ function displayRecipes(filter) {
     // Adding classes for propper cards display
     cardImg.setAttribute("src", "assets/img-placeholder.jpg");
     cardImg.setAttribute("class", "w-100 rounded-top");
-    cardText.setAttribute("class", "main-container rounded-bottom bg-light");
+    cardText.setAttribute("class", "main-container rounded-bottom bg-light px-md-2");
     cardHead.setAttribute("class", "row top-row fs-5");
     cardBody.setAttribute("class", "row bottom-row");
     recipeName.setAttribute("class", "recipe-name col-8");
@@ -97,10 +97,10 @@ function displayRecipes(filter) {
     });
 
     // Displaying recipes description and truncating text if it's too long
-    if (recipe.description.length < 200) {
+    if (recipe.description.length < 150) {
       recipeDescription.innerHTML = recipe.description;
     } else {
-      recipeDescription.innerHTML = recipe.description.substring(0, 200) + "...";
+      recipeDescription.innerHTML = recipe.description.substring(0, 150) + "...";
     }
 
     // Tags function
@@ -152,7 +152,11 @@ allUniqueIngredients.forEach(uniqueIngredient => {
   ingredientMenuItem.setAttribute("class", "ingredient dropdown-item text-white");
   ingredientMenuItem.setAttribute("href", "#");
 
-  ingredientsDropdown.appendChild(ingredientMenuItem);
+  const dropdownIngredientsBlock = document.getElementById("dropdown-ingredients-block");
+
+  dropdownIngredientsBlock.appendChild(ingredientMenuItem);
+
+  ingredientsDropdown.appendChild(dropdownIngredientsBlock);
 
   let ingredientsTags = ingredientMenuItem.innerHTML.toLowerCase().split(" ");
 
@@ -166,7 +170,7 @@ allUniqueIngredients.forEach(uniqueIngredient => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-primary col-2");
+    indTag.setAttribute("class", "btn btn-primary col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
 
     indTag.innerHTML = ingredientMenuItem.innerHTML;
 
@@ -239,7 +243,11 @@ allUniqueAppliances.forEach(uniqueAppliance => {
   applianceMenuItem.setAttribute("class", "appliance dropdown-item text-white");
   applianceMenuItem.setAttribute("href", "#");
 
-  appliancesDropdown.appendChild(applianceMenuItem);
+  const dropdownAppliancesBlock = document.getElementById("dropdown-appliances-block");
+
+  dropdownAppliancesBlock.appendChild(applianceMenuItem);
+
+  appliancesDropdown.appendChild(dropdownAppliancesBlock);
 
   let appliancesTags = applianceMenuItem.innerHTML.toLowerCase().split(" ");
 
@@ -253,7 +261,7 @@ allUniqueAppliances.forEach(uniqueAppliance => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-success col-2");
+    indTag.setAttribute("class", "btn btn-success col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
 
     indTag.innerHTML = applianceMenuItem.innerHTML;
 
@@ -328,7 +336,11 @@ allUniqueUtensils.forEach(uniqueUtensil => {
   utensilMenuItem.setAttribute("class", "utensil dropdown-item text-white");
   utensilMenuItem.setAttribute("href", "#");
 
-  utensilsDropdown.appendChild(utensilMenuItem);
+  const dropdownUtensilsBlock = document.getElementById("dropdown-utensils-block");
+
+  dropdownUtensilsBlock.appendChild(utensilMenuItem);
+
+  utensilsDropdown.appendChild(dropdownUtensilsBlock);
 
   let utensilsTags = utensilMenuItem.innerHTML.toLowerCase().split(" ");
 
@@ -342,7 +354,7 @@ allUniqueUtensils.forEach(uniqueUtensil => {
     
     tagsArea.appendChild(indTag);
 
-    indTag.setAttribute("class", "btn btn-danger col-2");
+    indTag.setAttribute("class", "btn btn-danger col-2 py-2 mx-2 text-white d-inline-flex justify-content-between align-items-baseline");
 
     indTag.innerHTML = utensilMenuItem.innerHTML;
 

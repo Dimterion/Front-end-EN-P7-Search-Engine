@@ -1,2 +1,81 @@
 @import "variable_overrides";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+/* Removed bootstrap clear icon */
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { display: none; }
+
+/* Dropdown menus display and recipes containers height adjustments */
+@media (min-width: 992px) {
+  #dropdown-ingredients-block {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    max-height: 295px;
+    overflow-y: scroll;
+  }
+
+  #dropdown-appliances-block {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  #dropdown-utensils-block {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .main-container {
+    height: 300px;
+  }
+}
+
+/* Toggling dropdown arrow */
+
+.dropdown-toggle::after {
+  border: none!important;
+  font: normal normal normal 1.5rem FontAwesome;
+  content: "\f107"!important;
+  vertical-align: middle;
+}
+
+button.btn.btn-primary.btn-lg.dropdown-toggle.text-white.d-inline-flex.justify-content-between.align-items-center.mx-md-2.show.dropdown-toggle::after {  
+  content: "\f106"!important;
+}
+
+button.btn.btn-success.btn-lg.dropdown-toggle.text-white.d-inline-flex.justify-content-between.align-items-center.mx-md-2.show.dropdown-toggle::after {  
+  content: "\f106"!important;
+}
+
+button.btn.btn-danger.btn-lg.dropdown-toggle.text-white.d-inline-flex.justify-content-between.align-items-center.mx-md-2.show.dropdown-toggle::after {  
+  content: "\f106"!important;
+}
+
+/* Adding close icon to tags */
+
+.btn.btn-primary.col-2.py-2.mx-2.text-white::after {
+  border: none!important;
+  font: normal normal normal 1rem FontAwesome;
+  content: "\f057"!important;
+  vertical-align: middle;
+}
+
+.btn.btn-success.col-2.py-2.mx-2.text-white::after {
+  border: none!important;
+  font: normal normal normal 1rem FontAwesome;
+  content: "\f057"!important;
+  vertical-align: middle;
+}
+
+.btn.btn-danger.col-2.py-2.mx-2.text-white::after {
+  border: none!important;
+  font: normal normal normal 1rem FontAwesome;
+  content: "\f057"!important;
+  vertical-align: middle;
+}
