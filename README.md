@@ -16,7 +16,7 @@ HTML, CSS/SASS, Bootstrap, JavaScript
 - Use provided mockups, specifications and design: [Webpage example](https://www.figma.com/file/bcU7zyhMTJM26j50pm9EKx/UI-Design-Les-Petits-Plats-EN)
 - Create a search functionality with a search input field and three groups of tags
 - Input field and tags should work both separately and in the combination with each other
-- Add recipes from the JavaScript array
+- Add recipes from the separate JavaScript array
 - Implement two possible solutions for the search engine: one using native loops (for, while, etc.) and another one using array class methods (forEach, filter, map, etc.)
 - Create a dedicated GitHub branch for each of the implementations
 - Test performance for each of the implementations and analyse them
