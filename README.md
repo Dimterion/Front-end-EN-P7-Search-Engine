@@ -1,16 +1,3 @@
-# Les petits plats website
-
-OpenClassrooms project
-
-## Link to the website
-
-[Les petits plats](https://dimterion.github.io/Front-end-EN-P7-Search-Engine/)
-
-## Built with
-
-HTML, CSS/SASS, Bootstrap, JavaScript
-
-
 # Recipes search engine
 
 OpenClassrooms project
@@ -33,7 +20,7 @@ HTML, CSS/SASS, Bootstrap, JavaScript
 - Implement two possible solutions for the search engine: one using native loops (for, while, etc.) and another one using array class methods (forEach, filter, map, etc.)
 - Create a dedicated GitHub branch for each of the implementations
 - Test performance for each of the implementations and analyse them
-- Compare the implementations and fill in a Functionality Investigation Form with the description of each of them, flow-charts describing the mechanic of the search in each case and recommendations on which one is more effective
+- Compare the implementations and fill in a Functionality Investigation Form with the description of each of them, flow-charts describing the mechanic of the search in each case and recommendations on which one is more effective: [Functionality Investigation Form](https://github.com/Dimterion/Recipes-search-engine/blob/main/assets/Functionality%20Investigation%20Form.pdf)
 
 ## Project goals
 
